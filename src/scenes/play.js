@@ -12,6 +12,11 @@ class Play extends Phaser.Scene {
 		this.comida = new Comida(this);
 	}
 	create() {
+
+		//this.add.dynamicBitmapText(10, 10, 'pixel', 'PUNTOS', 8);
+		//Con lauch ejecuto una escena al mismo tiempo que esta
+		this.scene.launch('UI');
+		const sceneUI = this.scene.get('UI');
 		this.input.keyboard.on('keydown-RIGHT', () => {
 			this.snake.changeMov('derecha');
 		});
@@ -29,6 +34,7 @@ class Play extends Phaser.Scene {
 		this.physics.add.collider(this.snake.cuerpo[0], this.comida.comida, () => {
 			this.comida.crearComida();
 			this.snake.crece();
+			sceneUI.addPoints();
 		})
 	}
 	update(time){

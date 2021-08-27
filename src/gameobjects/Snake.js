@@ -20,6 +20,7 @@ class Snake {
         // setInterval(() =>{this.crece();}, 1000)
     }
     crece(){
+        
         const obj = this.cuerpo[this.cuerpo.length-1];
         //const newObj = this.scene.physics.add.image(obj.x, obj.y, 'cuerpo')
         const newObj = this.scene.physics.add.image(100 * 10,100,'cuerpo')
